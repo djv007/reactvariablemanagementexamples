@@ -74,6 +74,26 @@ const dispatch_3 = store.getState();
 store.dispatch({ type: 'PLUS', payload: 7 });
 const dispatch_4 = store.getState(); 
 
+
+const styleInputs = (inputRef,defaultValue) => {
+  inputRef.current.focus()
+  inputRef.current.style.backgroundColor = "darkred";
+  inputRef.current.style.width = "150px";
+  inputRef.current.style.height = "10px";
+  inputRef.current.style.color = "white";
+  inputRef.current.style.margin = "5px";
+  inputRef.current.style.borderRadius = "10px";
+  inputRef.current.defaultValue =`${defaultValue} DJ`;
+}
+
+const handleFirstInput = () =>  {
+  styleInputs(inputRef, "Input 1 : ");
+}
+
+const handleSecondInput = () =>  {
+  styleInputs(input2Ref , "Input 2 : ");
+}
+
 //8
  
   return (
@@ -86,10 +106,10 @@ const dispatch_4 = store.getState();
   <p> State after -2 payload: { dispatch_3 } </p>
   <p> State after 7 payload: { dispatch_4 } </p>
 
-  <button onClick={()=>{inputRef.current.focus();}}>Focus switch to input1  using ref</button>
+  <button onClick={handleFirstInput}>Focus switch to input1  using ref</button>
   
   
-  <button onClick={()=>{input2Ref.current.focus();}}>Focus switch to input2  using ref</button>
+  <button onClick={handleSecondInput}>Focus switch to input2  using ref</button>
   
   
   <input type="text" ref={inputRef} />
